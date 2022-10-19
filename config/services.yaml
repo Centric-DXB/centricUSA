@@ -73,3 +73,13 @@ services:
     # App\EventListener\TestListener:
     #     tags:
     #         - { name: kernel.event_listener, event: pimcore.dataobject.preUpdate, method: onObjectPreUpdate }
+
+    App\Document\Areabrick\Wysiwyg:
+        tags:
+            - { name: pimcore.area.brick, id: wysiwyg }
+    App\Document\Areabrick\Headlines:
+        tags:
+            - { name: pimcore.area.brick, id: headlines }
+    App\Document\Areabrick\StandardTeaser:
+        tags:
+            - { name: pimcore.area.brick, id: standard-teaser }

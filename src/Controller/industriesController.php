@@ -32,7 +32,7 @@ class industriesController extends FrontendController
     {
         $data = array();
       
-        $industries = new Industries\listing();
+        $industries = new Industries\Listing();
         $industries->setLimit(3);
         $industries->load();
         foreach ($industries as $key => $industry) {
@@ -66,7 +66,7 @@ class industriesController extends FrontendController
         $url =   htmlspecialchars(trim(strip_tags($request->get('url'))));
        
 
-        $industry = new Industries\listing();
+        $industry = new Industries\Listing();
         $industry->setCondition("url =?" ,[$url]);
         $industry->load();
         if(count($industry) > 0){
