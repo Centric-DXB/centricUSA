@@ -1,0 +1,28 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    industries:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 298
+                                    height: 167.44
+                                    positioning: center
+                                    forceResize: false
+                        medias: {  }
+                        name: industries
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1666001036
+                        creationDate: 1666000932
+                        preserveAnimation: false

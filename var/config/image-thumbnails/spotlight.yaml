@@ -1,0 +1,36 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    spotlight:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 1440
+                                    height: 760
+                                    positioning: center
+                                    forceResize: false
+                        medias:
+                            '(min-width: 576px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 576
+                                        height: 538
+                                        positioning: center
+                                        forceResize: false
+                        name: spotlight
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1666001843
+                        creationDate: 1666001595
+                        preserveAnimation: false

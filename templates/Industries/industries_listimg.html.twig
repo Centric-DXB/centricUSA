@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+.heading-box{
+    padding:10px;
+}
+.ddl-industy{
+border:none;
+font-size: 2rem;
+    font-weight: 500;
+}
+</style>
+</head>
+<body>
+<section class="card-section">
+
+    <div class="container">
+    <div class="heading-box my-5 bg-primary text-white"><h2 style="text-align:center">
+          You are browsing the website as 
+          <select name="cars" id="cars" class="ddl-industy bg-primary text-white">
+           <option value=""  selected="">new visitor</option>
+          {% for Data in data %} 
+
+              {% set selected = '' %}
+              {% if Data.name == targetName %}
+                    {% set selected = 'selected' %}
+              {% endif %}
+            <option value="{{'/target/' ~ Data.url}}" {{selected}}>{{Data.name}}</option>
+
+          {% endfor %}
+          </select>  executive</h2></div>
+           {% if editmode %}
+            {{ pimcore_input("heading" , { "placeholder": "Write personalize content here"}) }}
+
+            {% else %}
+
+          {% if targetName != '' %}
+            <div ><h2 style="text-align:center">{{ pimcore_input("heading") }}</h2></div>
+            {% endif %}
+
+          {% endif %}
+            {% if editmode %}
+          
+           <div class="row">
+                {{ pimcore_relations("industries_realtion", {
+                    "types": ["object"],
+                    "subtypes": {
+                        "object": ["object"]
+                    },
+                    "classes": ["Industries"]
+                }) }}
+            </div>
+            {% endif %}
+    {% if not editmode %}
+    
+        <div class="row">
+        {% set targetGroups = [] %}
+         {% set items = {} %}
+         {% for industry in pimcore_relations("industries_realtion") %}
+            {% if industry is instanceof('\\Pimcore\\Model\\DataObject\\Industries')  %}
+               
+            <div class="col-sm-4 col-md-4">
+                <div class="card">
+                   {{ industry.image.image.thumbnail('industries').html() | raw }}
+                    {# <img src="{{industry.image.image}}" alt="Denim Jeans" style="width:100%"> #}
+                    <h1>{{industry.name}}</h1>
+                    {# <p class="price">$19.99</p> #}
+                    <p>{{industry.shortDescription|trim[:104]  ~ '..'}}</p>
+                    <p><a href = "/industries/{{industry.url|trim}}"><button>Read more</button></a></p>
+                </div>
+            </div>
+              {% endif %}
+            {% endfor %}
+        </div>
+       
+    {% endif %}
+ 
+    
+</section>
+<script type="text/javascript">
+	$('#cars').change(function () {
+window.location = $(this).val();
+});
+</script>
+
+</body>
+</html>

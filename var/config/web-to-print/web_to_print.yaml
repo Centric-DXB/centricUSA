@@ -1,0 +1,19 @@
+pimcore:
+    documents:
+        web_to_print:
+            enableInDefaultView: true
+            generalTool: pdfreactor
+            generalDocumentSaveMode: default
+            pdfreactorProtocol: http
+            pdfreactorServer: localhost
+            pdfreactorServerPort: '9423'
+            pdfreactorBaseUrl: 'http://centricusa.ma/'
+            pdfreactorApiKey: ''
+            pdfreactorLicence: ''
+            pdfreactorEnableLenientHttpsMode: false
+            pdfreactorEnableDebugMode: false
+            wkhtmltopdfBin: wkhtmltopdf
+            wkhtml2pdfOptions:
+                orientation: Portrait
+            wkhtml2pdfHostname: centricusa.ma
+            headlessChromeSettings: ''

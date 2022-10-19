@@ -1,0 +1,9 @@
+{% extends 'web2print/layout.html.twig' %}
+
+{%  block content %}
+
+    {{ include('web2print/default_no_layout.html.twig') }}
+
+    {{pimcore_input("test")}}
+
+{% endblock %}
