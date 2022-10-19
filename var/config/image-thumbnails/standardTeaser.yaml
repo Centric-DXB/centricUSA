@@ -1,0 +1,28 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    standardTeaser:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 350
+                                    height: 235
+                                    positioning: center
+                                    forceResize: false
+                        medias: {  }
+                        name: standardTeaser
+                        description: ''
+                        group: Areas
+                        format: SOURCE
+                        quality: 85
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1666181564
+                        creationDate: 1666181511
+                        preserveAnimation: false
