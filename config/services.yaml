@@ -83,3 +83,6 @@ services:
     App\Document\Areabrick\StandardTeaser:
         tags:
             - { name: pimcore.area.brick, id: standard-teaser }
+    App\Document\Areabrick\TestBrick:
+        tags:
+            - { name: pimcore.area.brick, id: test-brick }

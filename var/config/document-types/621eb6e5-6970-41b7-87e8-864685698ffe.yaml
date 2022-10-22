@@ -1,0 +1,14 @@
+pimcore:
+    documents:
+        doc_types:
+            definitions:
+                621eb6e5-6970-41b7-87e8-864685698ffe:
+                    name: null
+                    group: null
+                    controller: null
+                    template: null
+                    type: null
+                    priority: 0
+                    creationDate: 1666333462
+                    modificationDate: 1666333463
+                    staticGeneratorEnabled: null

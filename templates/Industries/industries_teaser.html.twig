@@ -1,0 +1,15 @@
+{# @var news \Pimcore\Model\DataObject\Industries #}
+
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <div class="card">
+                   {{ industry.image.image.thumbnail('industries').html() | raw }}
+                    {# <img src="{{industry.image.image}}" alt="Denim Jeans" style="width:100%"> #}
+                    <h1>{{industry.name}}</h1>
+                    {# <p class="price">$19.99</p> #}
+                    <p>{{industry.shortDescription|trim[:104]  ~ '..'}}</p>
+                    <p><a href = "/industries/{{industry.url|trim}}"><button>Read more</button></a></p>
+                </div>
+            </div>
+             
+        </div>

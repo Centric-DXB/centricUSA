@@ -85,15 +85,14 @@ font-size: 2rem;
     {% if not editmode %}
     
         <div class="row">
-        {% set targetGroups = [] %}
-         {% set items = {} %}
+       
          {% for industry in pimcore_relations("industries_realtion") %}
             {% if industry is instanceof('\\Pimcore\\Model\\DataObject\\Industries')  %}
                
             <div class="col-sm-4 col-md-4">
                 <div class="card">
                    {{ industry.image.image.thumbnail('industries').html() | raw }}
-                    {# <img src="{{industry.image.image}}" alt="Denim Jeans" style="width:100%"> #}
+                   
                     <h1>{{industry.name}}</h1>
                     {# <p class="price">$19.99</p> #}
                     <p>{{industry.shortDescription|trim[:104]  ~ '..'}}</p>
@@ -105,8 +104,9 @@ font-size: 2rem;
         </div>
        
     {% endif %}
- 
-          {{ pimcore_areablock("myAreablock") }}
+         
+          </div>
+          
 </section>
 <script type="text/javascript">
 	$('#cars').change(function () {
@@ -116,3 +116,11 @@ window.location = $(this).val();
 
 </body>
 </html>
+
+{% do pimcore_inline_script().appendScript("
+
+    $('#js_filterfield .custom-checkbox input, #js_filterfield .custom-radio input').on('change', function() {
+        $('#js_filterfield').submit();
+    });
+
+") %}

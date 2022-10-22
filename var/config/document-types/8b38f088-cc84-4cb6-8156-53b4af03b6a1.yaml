@@ -1,0 +1,14 @@
+pimcore:
+    documents:
+        doc_types:
+            definitions:
+                8b38f088-cc84-4cb6-8156-53b4af03b6a1:
+                    name: Standard-Teaser
+                    group: ''
+                    controller: 'App\Controller\DefaultController::indexAction'
+                    template: snippets\standard-teaser.html.twig
+                    type: snippet
+                    priority: 0
+                    creationDate: 1666333536
+                    modificationDate: 1666333660
+                    staticGeneratorEnabled: 0

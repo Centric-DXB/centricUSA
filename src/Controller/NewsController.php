@@ -124,4 +124,23 @@ class NewsController extends FrontendController
 
         throw new NotFoundHttpException('News not found.');
     }
+
+
+    /**
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function industriesTeaserAction(Request $request)
+    {
+        $paramsBag = [];
+        if ($request->get('type') == 'object') {
+            $industries = Industries::getById($request->get('id'));
+            $paramsBag['industry'] = $industries;
+
+            return $this->render('Industries/industries_teaser.html.twig', $paramsBag);
+        }
+
+        throw new NotFoundHttpException('Object not found.');
+    }
 }

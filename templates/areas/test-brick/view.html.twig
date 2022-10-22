@@ -1,0 +1,21 @@
+<section class="area-standard-teaser bg-light text-center">
+    <div class="container">
+        <h2>{{ pimcore_input('standardTeaserHeading') }}</h2>
+        <div class="card-deck mb-3 text-center {{ editmode ? 'no-gutters' : '' }} ">
+            {% for t in 0..2 %}
+                    {{
+                        pimcore_renderlet('testteaser_' ~ t, {
+                            type: 'object',
+                            editmode: editmode,
+                            controller: 'App\\Controller\\NewsController::industriesTeaserAction',
+                            title: 'Drag a industry object here',
+                            height : 'auto',
+                            width: '100%'
+                        })
+                    }}
+            
+            {% endfor %}
+               
+        </div>
+    </div>
+</section>
